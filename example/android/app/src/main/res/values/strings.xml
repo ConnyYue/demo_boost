@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="open_native">跳转原生主页</string>
+    <string name="open_flutter">跳转Flutter页</string>
+    <string name="open_flutter_fragment">跳转页面嵌套</string>
+    <string name="open_custom_view_tab">跳转Native页嵌套Flutter</string>
+    <string name="native_info">原生主页</string>
+    <string name="flutter1">Flutter1</string>
+    <string name="flutter2">Flutter2</string>
+    <string name="native_view">Native</string>
+</resources>
