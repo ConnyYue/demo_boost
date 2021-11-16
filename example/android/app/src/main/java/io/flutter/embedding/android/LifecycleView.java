@@ -28,6 +28,9 @@ public class LifecycleView extends FrameLayout implements LifecycleOwner, Flutte
   protected static final String ARG_FLUTTERVIEW_TRANSPARENCY_MODE = "flutterview_transparency_mode";
   protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
 
+  /**
+   * LifecycleView
+   */
   private final Activity mActivty;
   private View mView;
   private FlutterView mFlutterView;
@@ -53,11 +56,13 @@ public class LifecycleView extends FrameLayout implements LifecycleOwner, Flutte
     return mFlutterView;
   }
 
+  /**
+   * Lifecycle
+   */
   public void onCreate() {
     mLifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
     mDelegate = new FlutterActivityAndFragmentDelegate(this);
     mDelegate.onAttach(getContext());
-
     mView = mDelegate.onCreateView(null, null, null);
     addView(mView);
     mFlutterView = FlutterBoostUtils.findFlutterView(mView);
@@ -82,7 +87,6 @@ public class LifecycleView extends FrameLayout implements LifecycleOwner, Flutte
 
   public void onStop() {
     mLifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
-    mDelegate.onStop();
   }
 
   public void onDestroy() {
@@ -93,6 +97,9 @@ public class LifecycleView extends FrameLayout implements LifecycleOwner, Flutte
     mView = null;
   }
 
+  /**
+   * FlutterEngine
+   */
   @Nullable
   protected FlutterEngine getFlutterEngine() {
     return mDelegate.getFlutterEngine();
@@ -102,7 +109,6 @@ public class LifecycleView extends FrameLayout implements LifecycleOwner, Flutte
    * FlutterActivityAndFragmentDelegate.Host
    */
   public void detachFromFlutterEngine() { }
-
   public boolean shouldHandleDeeplinking() { return false; }
   public boolean popSystemNavigator() { return false; }
 
@@ -120,7 +126,7 @@ public class LifecycleView extends FrameLayout implements LifecycleOwner, Flutte
   public FlutterShellArgs getFlutterShellArgs() {
     String[] flutterShellArgsArray = getArguments().getStringArray(ARG_FLUTTER_INITIALIZATION_ARGS);
     return new FlutterShellArgs(
-        flutterShellArgsArray != null ? flutterShellArgsArray : new String[] {});
+            flutterShellArgsArray != null ? flutterShellArgsArray : new String[] {});
   }
 
   @Nullable
@@ -150,15 +156,15 @@ public class LifecycleView extends FrameLayout implements LifecycleOwner, Flutte
   @NonNull
   public RenderMode getRenderMode() {
     String renderModeName =
-    getArguments().getString(ARG_FLUTTERVIEW_RENDER_MODE, RenderMode.surface.name());
+            getArguments().getString(ARG_FLUTTERVIEW_RENDER_MODE, RenderMode.surface.name());
     return RenderMode.valueOf(renderModeName);
   }
 
   @NonNull
   public TransparencyMode getTransparencyMode() {
     String transparencyModeName =
-        getArguments()
-            .getString(ARG_FLUTTERVIEW_TRANSPARENCY_MODE, TransparencyMode.transparent.name());
+            getArguments()
+                    .getString(ARG_FLUTTERVIEW_TRANSPARENCY_MODE, TransparencyMode.transparent.name());
     return TransparencyMode.valueOf(transparencyModeName);
   }
 
@@ -174,7 +180,7 @@ public class LifecycleView extends FrameLayout implements LifecycleOwner, Flutte
 
   @Nullable
   public PlatformPlugin providePlatformPlugin(
-      @Nullable Activity activity, @NonNull FlutterEngine flutterEngine) {
+          @Nullable Activity activity, @NonNull FlutterEngine flutterEngine) {
     return null;
   }
 

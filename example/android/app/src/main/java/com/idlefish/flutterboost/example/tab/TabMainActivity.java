@@ -36,7 +36,6 @@ public class TabMainActivity extends FragmentActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_main_page);
-
         //页面初始化
         init();
         //页面的点击事件初始化

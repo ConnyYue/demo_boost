@@ -50,15 +50,13 @@ public class FlutterFragmentPageActivity extends AppCompatActivity implements Vi
         setContentView(R.layout.flutter_fragment_page);
 
         mTab1 = findViewById(R.id.tab1);
-        mTab2 = findViewById(R.id.tab2);
-        mTab3 = findViewById(R.id.tab3);
-        mTab4 = findViewById(R.id.tab4);
-
         mTab1.setOnClickListener(this);
+        mTab2 = findViewById(R.id.tab2);
         mTab2.setOnClickListener(this);
+        mTab3 = findViewById(R.id.tab3);
         mTab3.setOnClickListener(this);
+        mTab4 = findViewById(R.id.tab4);
         mTab4.setOnClickListener(this);
-
     }
 
     @Override
@@ -69,14 +67,14 @@ public class FlutterFragmentPageActivity extends AppCompatActivity implements Vi
         mTab3.setBackgroundColor(Color.WHITE);
         mTab4.setBackgroundColor(Color.WHITE);
 
-        if(mTab1 == v) {
-            mTab1.setBackgroundColor(Color.YELLOW);
-        }else if(mTab2 == v) {
-            mTab2.setBackgroundColor(Color.YELLOW);
-        }else if(mTab3 == v) {
-            mTab3.setBackgroundColor(Color.YELLOW);
-        }else{
-            mTab4.setBackgroundColor(Color.YELLOW);
+        if (mTab1 == v) {
+            mTab1.setBackgroundColor(Color.BLUE);
+        } else if (mTab2 == v) {
+            mTab2.setBackgroundColor(Color.BLUE);
+        } else if (mTab3 == v) {
+            mTab3.setBackgroundColor(Color.BLUE);
+        } else {
+            mTab4.setBackgroundColor(Color.BLUE);
         }
 
         getSupportFragmentManager()
@@ -116,7 +114,6 @@ public class FlutterFragmentPageActivity extends AppCompatActivity implements Vi
                     : getResources().getDrawable(splashScreenId)
                     : null;
         } catch (PackageManager.NameNotFoundException e) {
-            // This is never expected to happen.
             return null;
         }
     }

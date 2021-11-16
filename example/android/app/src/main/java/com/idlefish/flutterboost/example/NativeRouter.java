@@ -15,9 +15,7 @@ import java.util.Map;
 import io.flutter.embedding.android.FlutterActivity;
 
 public class NativeRouter {
-
     public final static Map<String, String> pageName = new HashMap<String, String>() {{
-
         put("first", "first");
         put("second", "second");
         put("tab", "tab");
@@ -44,10 +42,10 @@ public class NativeRouter {
         try {
             if (pageName.containsKey(path)) {
                 Intent intent =FlutterActivity.createDefaultIntent(context);
-                if(context instanceof Activity){
+                if (context instanceof Activity) {
                     Activity activity=(Activity)context;
                     activity.startActivityForResult(intent,requestCode);
-                }else{
+                } else {
                     context.startActivity(intent);
                 }
                 return true;
@@ -60,10 +58,9 @@ public class NativeRouter {
             } else if (url.startsWith(FLUTTER_CUSTOM_VIEW_URL)) {
                 context.startActivity(new Intent(context, TabCustomViewActivity.class));
                 return  true;
+            } else {
+                return false;
             }
-
-            return false;
-
         } catch (Throwable t) {
             return false;
         }

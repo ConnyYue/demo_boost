@@ -33,7 +33,7 @@ public class FlutterBoostView extends LifecycleView implements FlutterViewContai
 
     private boolean hasDestroyed() {
         if (hasDestroyed) {
-            Log.d("cccLog", "FlutterBoostView Destroyed");
+            Log.w(TAG, "Application attempted to call on a destroyed View", new Throwable());
         }
         return hasDestroyed;
     }
@@ -195,7 +195,7 @@ public class FlutterBoostView extends LifecycleView implements FlutterViewContai
 
     @Override
     public String getCachedEngineId() {
-      return getArguments().getString(ARG_CACHED_ENGINE_ID, FlutterBoost.ENGINE_ID);
+        return getArguments().getString(ARG_CACHED_ENGINE_ID, FlutterBoost.ENGINE_ID);
     }
 
     public void onFlutterUiDisplayed() {
